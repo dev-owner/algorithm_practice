@@ -16,7 +16,8 @@ public class ValidMountainArrayTest {
                 Arguments.of((Object) new int[]{1, 2, 3, 2, 1}),
                 Arguments.of((Object) new int[]{1, 5, 3}),
                 Arguments.of((Object) new int[]{1, 2, 3, 4, 3, 2, 1}),
-                Arguments.of((Object) new int[]{0, 3, 2, 1})
+                Arguments.of((Object) new int[]{0, 3, 2, 1}),
+                Arguments.of((Object) new int[]{0, 3, 3, 3, 2, 2, 1})
         );
     }
 
