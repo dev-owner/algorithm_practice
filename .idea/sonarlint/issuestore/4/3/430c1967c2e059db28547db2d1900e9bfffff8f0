@@ -1,7 +1,0 @@
-
-Z
-java:S1144"8Remove this unused private "successCaseProvider" method.(ü† Ôþÿÿÿÿ8Åþ ÷².
-j	java:S100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒŠÕÙ8Ð¥ž÷².
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Žøú8Ð¥ž÷².
-T
-java:S1144"7Remove this unused private "failedCaseProvider" method.(Ïì¸Ò8Þ²¡÷².

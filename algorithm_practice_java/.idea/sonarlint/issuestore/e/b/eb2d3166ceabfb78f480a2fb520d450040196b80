@@ -1,0 +1,13 @@
+
+R
+java:S1191"5Use classes from the Java API instead of Sun classes.(¬˜€8²¬­Ê³.
+]	java:S125"<This block of commented-out lines of code should be removed.(©„öõÿÿÿÿÿ8æÄˆÊ³.
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8Şò¦Ê³.
+<
+java:S1659-"Declare "n" on a separate line.(¶©õÂ8ÚÒÍÊ³.
+]	java:S125"<This block of commented-out lines of code should be removed.(©„öõÿÿÿÿÿ8âóÉ³.
+<
+java:S1659-"Declare "a" on a separate line.(¶©õÂ8ÚÒÍÊ³.
+i
+java:S1128"LRemove this unused import 'com.sun.xml.internal.xsom.impl.UName.comparator'.(¬˜€8²¬­Ê³.
