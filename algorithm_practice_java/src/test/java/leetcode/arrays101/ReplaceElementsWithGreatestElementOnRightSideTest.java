@@ -19,7 +19,7 @@ class ReplaceElementsWithGreatestElementOnRightSideTest {
 
     @ParameterizedTest
     @MethodSource("provider")
-    void replaceElements(int[] input, int[] expectedValue) {
+    void testReplaceElements(int[] input, int[] expectedValue) {
         int[] ints = ReplaceElementsWithGreatestElementOnRightSide.replaceElements(input);
         assertArrayEquals(expectedValue, ints);
     }
