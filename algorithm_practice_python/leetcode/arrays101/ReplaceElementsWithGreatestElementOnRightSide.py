@@ -1,4 +1,4 @@
-class Solution(object):
+class ReplaceElementsWithGreatestElementOnRightSide(object):
     # OK, but too complecated.
     # def replaceElements(self, arr: List[int]) -> List[int]:
     #     max = -1
