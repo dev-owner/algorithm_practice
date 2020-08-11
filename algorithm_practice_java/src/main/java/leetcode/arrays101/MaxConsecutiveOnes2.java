@@ -4,7 +4,8 @@ package leetcode.arrays101;
  * url : https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3230/
  */
 public class MaxConsecutiveOnes2 {
-    public static int findMaxConsecutiveOnes(int[] nums) {
+    // native solution
+/*    public static int findMaxConsecutiveOnes(int[] nums) {
         int max = -1;
         int cur = 0;
         int idx = 0;
@@ -27,5 +28,25 @@ public class MaxConsecutiveOnes2 {
         }
 
         return (max < cur) ? cur : max;
+    }*/
+
+    public static int findMaxConsecutiveOnes(int[] nums) {
+        //idea : keep a window [l, h] that contains at most k zero
+        //time : n sapce : 1
+
+        int max = 0, zero = 0, k = 1; //flip at most k zero
+        for (int l = 0, h = 0; h < nums.length; h++) {
+            if (nums[h] == 0) {
+                zero++;
+            }
+            while (zero > k) {
+                if (nums[l++] == 0) {
+                    zero--;
+                }
+            }
+            max = Math.max(max, h - l + 1);
+        }
+        return max;
     }
+
 }
