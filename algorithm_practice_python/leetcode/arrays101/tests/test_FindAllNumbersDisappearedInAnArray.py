@@ -7,8 +7,8 @@ class TestFindAllNumbersDisappearedInAnArray(TestCase):
     def test_find_disappeared_numbers(self):
         nums = [4, 3, 2, 7, 8, 2, 3, 1]
         self.assertEqual([5, 6],
-                         FindAllNumbersDisappearedInAnArray.findDisappearedNumbers(self, nums))
+                         FindAllNumbersDisappearedInAnArray.find_disappeared_numbers(nums))
 
         nums = [1, 1]
         self.assertEqual([2],
-                         FindAllNumbersDisappearedInAnArray.findDisappearedNumbers(self, nums))
+                         FindAllNumbersDisappearedInAnArray.find_disappeared_numbers(nums))
