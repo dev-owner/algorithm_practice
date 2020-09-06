@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from leetcode.arrays101.BinarySearch import BinarySearch
+from leetcode.BinarySearch.BinarySearch import BinarySearch
 
 
 class TestBinarySearch(TestCase):
