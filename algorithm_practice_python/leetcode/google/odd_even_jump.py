@@ -13,45 +13,33 @@ class OddEvenJump:
         좋은 스타팅 인덱스의 갯수를 반환해라.
         """
 
-        # [10, 13, 12, 14, 15]
+        n = len(A)
+        odd, even = [False] * n, [False] * n
+        odd[-1], even[-1] = True, True
 
-        length = len(A)
-        odd = [False for _ in A]
-        even = [False for _ in A]
-        odd[length - 1] = True
-        even[length - 1] = True
+        sorted_idx = sorted(range(n), key=lambda i: A[i])
+        odd_next_bucket = OddEvenJump.get_next_hops(sorted_idx)
+        sorted_idx.sort(key=lambda i: -A[i])
+        even_next_bucket = OddEvenJump.get_next_hops(sorted_idx)
 
-        for i in range(length - 2, -1, -1):
-            if OddEvenJump.get_smallest_among_bigger(A, i):
-                odd[i] = even[OddEvenJump.get_smallest_among_bigger(A, i)]
-            else:
-                odd[i] = False
-            if OddEvenJump.get_biggest_among_smaller(A, i):
-                even[i] = odd[OddEvenJump.get_biggest_among_smaller(A, i)]
-            else:
-                even[i] = False
+        for i in reversed(range(n - 1)):
+            odd_next, even_next = odd_next_bucket[i], even_next_bucket[i]
 
-        return len(list(filter(lambda x: x is True, odd)))
+            if odd_next:
+                odd[i] = even[odd_next]
+            if even_next:
+                even[i] = odd[even_next]
 
-    @classmethod
-    def get_smallest_among_bigger(cls, A, i):
-        sub_arr = A[i + 1:]
-        val = A[i]
-        sub_arr.sort()
-        for v in sub_arr:
-            if val <= v:
-                ret = A.index(v)
-                if ret > i:
-                    return ret
-        return None
+        return sum(odd)
 
     @classmethod
-    def get_biggest_among_smaller(cls, A, i):
-        sub_arr = A[i + 1:]
-        val = A[i]
-        for v in reversed(sub_arr):
-            if val >= v:
-                ret = A.index(v)
-                if ret > i:
-                    return ret
-        return None
+    def get_next_hops(cls, idxs_sorted_by_value):
+        next_hop = [None] * len(idxs_sorted_by_value)
+        stack = []
+
+        for i in idxs_sorted_by_value:
+            while stack and stack[-1] < i:
+                next_hop[stack.pop()] = i
+            stack.append(i)
+
+        return next_hop
