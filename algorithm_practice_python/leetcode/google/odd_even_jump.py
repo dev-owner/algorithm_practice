@@ -34,6 +34,10 @@ class OddEvenJump:
 
     @classmethod
     def get_next_hops(cls, idxs_sorted_by_value):
+        """
+        monotonic stack.
+        이미 값으로 정렬된 인덱스를 받아, 해당 인덱스보다 큰 제일 첫번째 인덱스를 next_hop에 저장하여 next_hop 배열을 반환
+        """
         next_hop = [None] * len(idxs_sorted_by_value)
         stack = []
 
