@@ -40,6 +40,6 @@ class SumOfSubarrayMinimums:
         mod = 1e9
         prev = []
         for idx, v in enumerate(arr):
-
+            pass
 
         return int(ret % mod)
