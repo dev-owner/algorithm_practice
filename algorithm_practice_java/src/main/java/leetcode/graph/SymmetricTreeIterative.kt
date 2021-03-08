@@ -12,6 +12,7 @@ import java.util.*
  *     var right: TreeNode? = null
  * }
  */
+
 class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
@@ -22,7 +23,7 @@ class Solution {
         if (root == null) {
             return false
         }
-        val arr = Stack<Pair<TreeNode, TreeNode>>()
+        val arr = Stack<Pair<TreeNode?, TreeNode?>>()
         arr.push(Pair(root.left, root.right))
         while (arr.empty() != true) {
             val cur = arr.pop()

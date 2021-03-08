@@ -11,10 +11,6 @@ package leetcode.graph
  * }
  */
 
-//class TreeNode(var `val`: Int) {
-//    var left: TreeNode? = null
-//    var right: TreeNode? = null
-//}
 
 class SymmetricTreeRecursive {
     fun isSymmetric(root: TreeNode?): Boolean {
