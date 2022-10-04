@@ -13,7 +13,7 @@ class Solution:
 
         return arr
 
-    def countBits(self, n: int) -> List[int]:
+    def countBits_2(self, n: int) -> List[int]:
         # 인덱스는 1씩 증가
         # 패턴이 있지 않을까?
         # 0 1 2 3 4 5 6 ..
@@ -37,6 +37,21 @@ class Solution:
             arr.append(arr[i - offset] + 1)
 
         return arr
+
+    def countBits(self, n: int) -> List[int]:
+        # even = 2n, odd = 2n+1
+        # x2 = adding 0 at the end
+        # double = # of 1's
+        # 2를 곱하면 뒤에 0 하나 붙인거랑 같음
+        # 2 곱하고 1더하면 1 카운트가 하나 늘어남
+        # countBits(N) = countBits(2N)
+        # countBits(N) + 1 = CountBits(2N+1)
+        # time, space = O(N)
+
+        counter = [0]
+        for i in range(1, n+1):
+            counter.append(counter[i >> 1] + i % 2)
+        return counter
 
 
 if __name__ == '__main__':
