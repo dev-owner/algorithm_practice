@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 from typing import List
 
 
@@ -26,11 +26,37 @@ class Solution:
 
         return dfs(source, destination)
 
+    def validPath_2(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        # bfs
+        # breadth first search
+        # Queue
+
+        if n == 1: return True
+
+        neighbors = defaultdict(list)
+        for k, v in edges:
+            neighbors[k].append(v)
+            neighbors[v].append(k)
+
+        q = deque()
+        q.append(source)
+        visited = [False] * n
+
+        while q:
+            curr = q.popleft()
+            if destination == curr: return True
+            visited[curr] = True
+            for n in neighbors[curr]:
+                if not visited[n]:
+                    q.append(n)
+
+        return False
+
 
 if __name__ == '__main__':
-    n = 3
-    edges = [[0, 1], [1, 2], [2, 0]]
-    source = 0
-    destination = 2
-    ans = Solution().validPath(n, edges, source, destination)
-    print(f'{ans}, true')
+    n = 10
+    edges = [[2,9],[7,8],[5,9],[7,2],[3,8],[2,8],[1,6],[3,0],[7,0],[8,5]]
+    source = 1
+    destination = 0
+    ans = Solution().validPath_2(n, edges, source, destination)
+    print(f'{ans}, false')
