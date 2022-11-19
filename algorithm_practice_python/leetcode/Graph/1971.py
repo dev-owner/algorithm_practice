@@ -13,12 +13,12 @@ class Solution:
             neighbors[k].append(v)
             neighbors[v].append(k)
 
-        visited = set()
+        visited = [False] * n
 
         def dfs(node, end):
             if node == end: return True
-            if node in visited: return False
-            visited.add(node)
+            if visited[node]: return False
+            visited[node] = True
             for neighbor in neighbors[node]:
                 if dfs(neighbor, end):
                     return True
