@@ -12,39 +12,36 @@ class TreeNode:
 
 class Solution:
     def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
+        def dfs(node):
+            if not node: return None
+            if node.val == target.val: return node
 
-        q = [cloned.val]
+            left = dfs(node.left)
+            if left: return left
 
-        while q:
-            if q.val == target: return
+            right = dfs(node.right)
+            if right: return right
 
-
-        pass
+            return None
+        return dfs(cloned)
 
 
 if __name__ == '__main__':
-    tree = [7, 4, 3, None, None, 6, 19]
-    target = 3
-    output = 3
-
-
-
-    original = TreeNode(7)
-    b = TreeNode(4)
+    a = TreeNode(1)
+    b = TreeNode(2)
     c = TreeNode(3)
-    d = TreeNode(None)
-    e = TreeNode(None)
+    d = TreeNode(4)
+    e = TreeNode(5)
     f = TreeNode(6)
-    g = TreeNode(19)
+    g = TreeNode(7)
 
-    original.left(b)
-    original.right(c)
-    b.left(d)
-    b.right(e)
-    c.left(f)
-    c.right(g)
 
-    cloned = copy.deepcopy(original)
+    a.left = b
+    a.right = c
+    b.left = d
+    b.right = e
+    c.left = f
+    c.right = g
 
-    ans = Solution().getTargetCopy(original, cloned, target)
-    print(f'{ans}, {output}')
+    ans = Solution().getTargetCopy(a, copy.deepcopy(a), e)
+    print(ans)
