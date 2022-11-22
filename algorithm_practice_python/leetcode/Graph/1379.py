@@ -1,6 +1,5 @@
 # Definition for a binary tree node.
 import copy
-from collections import defaultdict
 
 
 class TreeNode:
@@ -23,6 +22,7 @@ class Solution:
             if right: return right
 
             return None
+
         return dfs(cloned)
 
 
@@ -34,7 +34,6 @@ if __name__ == '__main__':
     e = TreeNode(5)
     f = TreeNode(6)
     g = TreeNode(7)
-
 
     a.left = b
     a.right = c
