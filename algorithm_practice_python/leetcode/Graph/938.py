@@ -42,6 +42,7 @@ if __name__ == '__main__':
     b.right = e
     c.left = f
     c.right = g
+    #
 
     ans = Solution().rangeSumBST(a, low, high)
     print(ans)
