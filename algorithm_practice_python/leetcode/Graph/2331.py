@@ -22,9 +22,6 @@ class Solution:
                 return self.evaluateTree(root.left) and self.evaluateTree(root.right)
 
 
-
-
-
 if __name__ == '__main__':
     """
     root = full binary tree
