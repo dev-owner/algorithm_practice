@@ -20,5 +20,6 @@ if __name__ == '__main__':
     r = TreeNode(7)
     root = TreeNode(5, l, r)
 
+
     ans = Solution().increasingBST(root)
     print(f'{ans}, ')
