@@ -5,14 +5,38 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    def increasingBST(self, root: TreeNode, tail=None) -> TreeNode:
+    def increasingBST(self, root: TreeNode, nxt=None) -> TreeNode:
         # in-place re-arrange
 
-        if not root: return tail
+        if not root: return nxt
         res = self.increasingBST(root.left, root)
         root.left = None
-        root.right = self.increasingBST(root.right, tail)
+        root.right = self.increasingBST(root.right, nxt)
         return res
+
+    def increasingBST_2(self, root):
+        if not root: return None
+
+        stack = []
+        temp = x = root
+        i = 0
+        while stack or temp:
+            if temp:
+                stack.append(temp)
+                temp = temp.left
+            else:
+                node = stack.pop()
+                if i==0:
+                    root = x = node
+                    i += 1
+                else:
+                    x.right = node
+                    x = node
+                    x.left = None
+                temp = node.right
+        return root
+
+
 
 
 if __name__ == '__main__':
