@@ -17,7 +17,7 @@ class Solution:
         if not root: return ans
 
         def dfs(root, ans, path=""):
-            if not root.left and not root.right: #leaf nodes
+            if not root.left and not root.right:
                 ans.append(f'{path}{root.val}')
             if root.left:
                 dfs(root.left, ans, f'{path}{root.val}->')
