@@ -7,7 +7,7 @@ class Solution:
         ans[i] = nums[nums[i]]
         """
 
-        return [nums[nums[i]] for i in range(len(nums))]
+        return [nums[i] for i in nums]
 
 
 if __name__ == '__main__':
