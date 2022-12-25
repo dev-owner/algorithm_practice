@@ -17,13 +17,11 @@ class Solution:
         # 1 2 3 4
         # 1 3 6 10
         for i in range(1, len(nums)):
-            nums[i] += nums[i-1]
+            nums[i] += nums[i - 1]
         return nums
 
 
-
-
 if __name__ == '__main__':
-    nums = [1,2,3,4]
+    nums = [1, 2, 3, 4]
     ans = Solution().runningSum(nums)
     print(f'{ans}, [1,3,6,10]')
