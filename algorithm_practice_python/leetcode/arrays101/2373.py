@@ -38,8 +38,16 @@ class Solution:
                 for c in range(col - radius, col + radius + 1)
             )
 
+    def sol2(self, grid):
+        n = len(grid)
+        ans = [[0] * (n-2) for _ in range(n-2)]
+        for i in range(n-2):
+            for j in range(n-2):
+                ans[i][j] = max(grid[ii][jj] for ii in range(i, i+3) for jj in range(j, j+3))
+
+        return ans
 
 if __name__ == '__main__':
     grid = [[9, 9, 8, 1], [5, 6, 2, 6], [8, 2, 6, 4], [6, 2, 2, 2]]
-    ans = Solution().largestLocal(grid)
+    ans = Solution().sol2(grid)
     print(f'{ans}, [[9,9],[8,6]]')
