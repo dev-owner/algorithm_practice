@@ -14,6 +14,8 @@ class Solution:
         return True
 
     def generate(self, w):
+        # time : O(N+M)
+        # space: O(1)
         for word in w:
             for char in word:
                 yield char
